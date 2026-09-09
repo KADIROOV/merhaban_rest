@@ -75,7 +75,7 @@ export function Reviews() {
             >
               <Quote className="h-5 w-5 text-gold/60" />
               <blockquote className="text-text text-sm sm:text-base leading-relaxed flex-1">
-                "{review.quote}"
+                {review.quote}
               </blockquote>
               <figcaption className="font-display uppercase tracking-menu text-xs text-text-muted">
                 {review.name}
