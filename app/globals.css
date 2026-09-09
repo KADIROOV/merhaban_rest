@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* dark palette (brand default) */
+  --bg: 26 21% 6%;
+  --bg-raised: 25 25% 9%;
+  --bg-raised-2: 25 22% 13%;
+  --text: 37 51% 91%;
+  --text-muted: 37 20% 70%;
+  --ember: 15 80% 51%;
+  --ember-deep: 12 75% 41%;
+  --gold: 41 54% 54%;
+  --wine: 359 54% 31%;
+  --hairline: 41 40% 40%;
+  --hairline-alpha: 0.22;
+}
+
+.light {
+  --bg: 37 47% 93%;
+  --bg-raised: 0 0% 100%;
+  --bg-raised-2: 37 40% 97%;
+  --text: 24 24% 8%;
+  --text-muted: 24 15% 32%;
+  --ember: 15 77% 47%;
+  --ember-deep: 12 75% 38%;
+  --gold: 41 56% 42%;
+  --wine: 359 50% 34%;
+  --hairline: 41 30% 30%;
+  --hairline-alpha: 0.15;
+}
+
+* {
+  border-color: hsl(var(--hairline) / var(--hairline-alpha));
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text));
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background-color: hsl(var(--ember) / 0.35);
+  color: hsl(var(--text));
+}
+
+/* Hairline gold divider, used deliberately instead of soft card shadows */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--gold) / 0.6) 20%,
+    hsl(var(--gold) / 0.6) 80%,
+    transparent
+  );
+}
+
+.hairline-v {
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    hsl(var(--gold) / 0.5) 20%,
+    hsl(var(--gold) / 0.5) 80%,
+    transparent
+  );
+}
+
+/* Thin, warm scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--gold) / 0.35);
+  border-radius: 0;
+}
+
+/* visible keyboard focus, everywhere */
+:focus-visible {
+  outline: 2px solid hsl(var(--ember));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.font-display {
+  font-family: var(--font-oswald), sans-serif;
+}
+.font-body {
+  font-family: var(--font-inter), sans-serif;
+}
